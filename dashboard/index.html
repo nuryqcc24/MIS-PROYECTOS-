@@ -49,7 +49,7 @@
     max-width: 1000px;
     width: 100%;
   }
-  /* --- Escena: hormiga + semáforo con poste --- */
+  /* --- Semáforo con poste --- */
   .escena { display: flex; align-items: flex-end; gap: 4px; }
   .torre { display: flex; flex-direction: column; align-items: center; }
   .poste {
@@ -61,17 +61,6 @@
     background: radial-gradient(ellipse at 50% 35%, #6b7280, #374151 70%);
     margin-top: -10px;
   }
-  .hormiga { width: 260px; height: auto; margin-bottom: 40px; margin-right: -20px; overflow: visible; }
-  .hormiga .hoja { fill: var(--hoja, #9ca3af); transition: fill .15s; }
-  .hormiga .vena { stroke: rgba(0, 0, 0, .25); stroke-width: 2.5; fill: none; stroke-linecap: round; }
-  .hormiga .cuerpo { fill: #e2711d; stroke: #7a3608; stroke-width: 3; }
-  .hormiga .oscuro { fill: #b4540f; }
-  .hormiga .linea { stroke: #7a3608; stroke-width: 4; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-  .hormiga .tallo { stroke: #4d7c0f; stroke-width: 5; stroke-linecap: round; }
-  .meneo { transform-origin: 150px 160px; animation: menear 2.4s ease-in-out infinite; }
-  @keyframes menear { 50% { transform: rotate(-4deg); } }
-  @media (prefers-reduced-motion: reduce) { .meneo { animation: none; } }
-  @media (max-width: 560px) { .hormiga { width: 130px; } }
 
   /* --- Semáforo dibujado --- */
   .semaforo {
@@ -127,48 +116,6 @@
 <body>
 <main class="contenedor">
   <div class="escena">
-    <!-- Hormiga con su hoja: la hoja toma el color de la luz encendida -->
-    <svg class="hormiga" viewBox="0 0 220 290" aria-hidden="true">
-      <g class="meneo">
-        <!-- tallo y hoja (paraguas) -->
-        <line class="tallo" x1="150" y1="160" x2="95" y2="45"/>
-        <path class="hoja" d="M8 92 C 30 20, 150 -10, 200 40 C 175 52, 140 50, 112 62 C 80 76, 40 70, 8 92 Z"/>
-        <path class="vena" d="M18 86 C 70 50, 140 30, 192 42"/>
-        <path class="vena" d="M60 64 L 52 42 M95 52 L 92 26 M130 42 L 134 18 M165 40 L 172 22"/>
-        <path class="vena" d="M60 64 L 70 74 M95 52 L 108 66 M130 42 L 146 52"/>
-        <!-- brazos sujetando el tallo -->
-        <path class="linea" d="M118 168 C 130 160, 140 152, 146 150"/>
-        <path class="linea" d="M112 176 C 128 178, 144 172, 152 164"/>
-        <circle class="cuerpo" cx="148" cy="150" r="6"/>
-        <circle class="cuerpo" cx="153" cy="165" r="6"/>
-      </g>
-      <!-- patas -->
-      <path class="linea" d="M100 192 L 84 232 L 70 280 L 56 282"/>
-      <path class="linea" d="M112 194 L 116 236 L 108 282 L 94 284"/>
-      <path class="linea" d="M68 218 L 40 246 L 30 276"/>
-      <!-- abdomen con rayas -->
-      <ellipse class="cuerpo" cx="62" cy="200" rx="36" ry="28"/>
-      <path class="oscuro" d="M44 177 C 52 190, 52 212, 42 224 L 52 226 C 62 212, 62 190, 54 175 Z"/>
-      <path class="oscuro" d="M68 172 C 76 188, 76 214, 68 228 L 78 226 C 86 212, 86 190, 78 174 Z"/>
-      <!-- tórax -->
-      <ellipse class="cuerpo" cx="108" cy="178" rx="16" ry="20"/>
-      <!-- antenas -->
-      <path class="linea" d="M120 96 C 112 70, 96 62, 86 66"/>
-      <path class="linea" d="M140 94 C 146 66, 164 58, 174 64"/>
-      <circle class="oscuro" cx="85" cy="66" r="6"/>
-      <circle class="oscuro" cx="175" cy="64" r="6"/>
-      <!-- cabeza -->
-      <circle class="cuerpo" cx="130" cy="124" r="32"/>
-      <ellipse cx="120" cy="116" rx="9" ry="12" fill="#fff" stroke="#7a3608" stroke-width="2"/>
-      <ellipse cx="142" cy="114" rx="9" ry="12" fill="#fff" stroke="#7a3608" stroke-width="2"/>
-      <circle cx="123" cy="119" r="4.5" fill="#1f2937"/>
-      <circle cx="145" cy="117" r="4.5" fill="#1f2937"/>
-      <circle cx="124.5" cy="117" r="1.5" fill="#fff"/>
-      <circle cx="146.5" cy="115" r="1.5" fill="#fff"/>
-      <path d="M118 136 C 126 150, 146 150, 152 132 Z" fill="#7a1d0d"/>
-      <path d="M128 144 C 132 140, 140 140, 144 143 C 140 148, 132 148, 128 144 Z" fill="#f87171"/>
-    </svg>
-
     <div class="torre">
       <div class="semaforo" aria-label="Semáforo">
         <div class="luz rojo" id="luz-ROJO"></div>
@@ -227,8 +174,6 @@
         $("luz-" + color).classList.toggle("on", e.conectado && e.luz === color);
       }
       $("luz").textContent = NOMBRES[e.luz] || e.luz;
-      // la hoja de la hormiga toma el color de la luz encendida (gris si no hay)
-      document.documentElement.style.setProperty("--hoja", (e.conectado && COLORES[e.luz]) || "#9ca3af");
 
       if (e.fase) {
         $("fase").textContent = NOMBRES[e.fase] || e.fase;
