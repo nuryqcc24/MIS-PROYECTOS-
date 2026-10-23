@@ -14,6 +14,8 @@
 
 Panel web interactivo diseñado para la monitorización en tiempo real del ciclo semafórico, control peatonal y sincronización de estados vía comunicación serial.
 
+👉 **[Ver el proyecto: código, conexiones y cómo usarlo](semaforo-esp32/)**
+
 ### 🛠️ Características Principales
 * ⏱️ **Monitoreo de Ciclos:** Visualización dinámica de fases activa (Verde, Amarillo, Rojo) con temporizador en tiempo real.
 * 🚶 **Señalización Peatonal:** Alertas visuales sincronizadas para flujo de peatones.
@@ -35,8 +37,10 @@ Panel web interactivo diseñado para la monitorización en tiempo real del ciclo
 ## 📂 Estructura del Repositorio
 
 ```text
-├── semaforo-control/     # Código fuente de la interfaz web
-│   ├── index.html        # Estructura principal
-│   ├── styles.css        # Diseño y animaciones
-│   └── script.js         # Lógica de sincronización y temporizadores
-└── README.md             # Documentación del proyecto
+├── semaforo-esp32/       # Sistema de Control de Semáforo Inteligente
+│   ├── src/main.cpp      # Programa del ESP32 (LEDs, buzzer y mensajes por serial)
+│   ├── platformio.ini    # Configuración de PlatformIO
+│   ├── dashboard/        # Panel web en tiempo real (Python + HTML)
+│   ├── PRUEBA_BUZZER/    # Sketch de prueba del buzzer
+│   └── README.md         # Documentación del proyecto
+└── README.md             # Este portafolio
