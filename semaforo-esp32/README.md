@@ -4,6 +4,13 @@ Semáforo vehicular con LEDs rojo, amarillo y verde controlado por un ESP32,
 con aviso sonoro para peatones y un dashboard web que muestra en vivo qué
 luz está encendida.
 
+<p align="center">
+  <img src="fotos/semaforo-amarillo.webp" alt="Semáforo en amarillo: el LED y el dashboard encendidos en amarillo" width="45%" />
+  &nbsp;
+  <img src="fotos/semaforo-verde.webp" alt="Semáforo en verde: el LED y el dashboard encendidos en verde" width="45%" />
+</p>
+<p align="center"><em>El LED del protoboard y el dashboard de la laptop cambian al mismo tiempo.</em></p>
+
 ## Funcionamiento
 
 | Fase | Duración | Peatones | Buzzer |
