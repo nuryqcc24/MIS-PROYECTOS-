@@ -14,6 +14,12 @@
 
 Panel web interactivo diseñado para la monitorización en tiempo real del ciclo semafórico, control peatonal y sincronización de estados vía comunicación serial.
 
+<p align="center">
+  <img src="semaforo-esp32/fotos/semaforo-amarillo.webp" alt="Semáforo en amarillo" width="40%" />
+  &nbsp;
+  <img src="semaforo-esp32/fotos/semaforo-verde.webp" alt="Semáforo en verde" width="40%" />
+</p>
+
 👉 **[Ver el proyecto: código, conexiones y cómo usarlo](semaforo-esp32/)**
 
 ### 🛠️ Características Principales
